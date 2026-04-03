@@ -1,0 +1,47 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-primary: #10b981; /* Emerald 500 */
+  --color-brand-secondary: #6366f1; /* Indigo 500 */
+  --color-brand-dark: #0f172a; /* Slate 900 */
+  
+  --font-sans: "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background: #f8fafc;
+  --foreground: #0f172a;
+  --card: #ffffff;
+  --card-foreground: #0f172a;
+  --border: #e2e8f0;
+}
+
+.dark {
+  --background: #020617;
+  --foreground: #f8fafc;
+  --card: #0f172a;
+  --card-foreground: #f8fafc;
+  --border: #1e293b;
+}
+
+@layer base {
+  body {
+    @apply bg-[var(--background)] text-[var(--foreground)] transition-colors duration-300;
+    font-feature-settings: "cv02", "cv03", "cv04", "cv11";
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[var(--card)] border border-[var(--border)] rounded-2xl shadow-sm overflow-hidden;
+    backdrop-filter: blur(8px);
+  }
+  
+  .btn-primary {
+    @apply px-4 py-2 bg-brand-secondary text-white rounded-lg font-medium transition-all hover:opacity-90 active:scale-95 disabled:opacity-50 disabled:pointer-events-none;
+  }
+  
+  .btn-ghost {
+    @apply px-4 py-2 text-slate-600 dark:text-slate-400 rounded-lg font-medium transition-all hover:bg-slate-100 dark:hover:bg-slate-800 active:scale-95;
+  }
+}
