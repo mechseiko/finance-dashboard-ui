@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
+import Dashboard from './pages/Dashboard';
 function App() {
 
   return (
@@ -8,7 +9,7 @@ function App() {
     
           <main className="flex-1 overflow-y-auto">
             <Routes>
-              {/* <Route path="/" element={<Dashboard />} /> */}
+              <Route path="/" element={<Dashboard />} />
             </Routes>
           </main>
         
