@@ -4,11 +4,8 @@ import {
   Bar, 
   XAxis, 
   YAxis, 
-  CartesianGrid, 
   Tooltip, 
   ResponsiveContainer, 
-  LineChart, 
-  Line 
 } from 'recharts';
 import { Sparkles, TrendingUp, Wallet, Calculator, ArrowRight } from 'lucide-react';
 import useFinanceStore from '../store/useFinanceStore';
@@ -61,9 +58,9 @@ export default function Insights() {
               </div>
               <Sparkles className="w-12 h-12 text-white/50" />
             </div>
-            <button className="mt-8 flex items-center gap-2 text-sm font-bold bg-white text-brand-secondary px-6 py-3 rounded-xl hover:bg-indigo-50 transition-all active:scale-95">
+            <button className="mt-8 flex items-center cursor-pointer group gap-2 text-sm font-bold bg-white text-brand-secondary px-6 py-3 rounded-xl hover:bg-indigo-50 transition-all active:scale-95">
               Build a Savings Plan
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all" />
             </button>
           </div>
 
@@ -89,7 +86,6 @@ export default function Insights() {
           </div>
         </div>
 
-        {/* Side Stats */}
         <div className="space-y-6">
           <div className="glass-card p-6">
             <h3 className="text-lg font-semibold mb-6 flex items-center gap-2">
@@ -100,7 +96,7 @@ export default function Insights() {
               {topCategories.map((cat, i) => (
                 <div key={cat.name} className="flex items-center justify-between">
                   <div className="flex items-center gap-3">
-                    <span className="w-6 h-6 flex items-center justify-center bg-slate-100 dark:bg-slate-800 rounded text-xs font-bold text-slate-500">
+                    <span className="w-6 h-6 flex items-center justify-center rounded text-xs font-bold text-slate-500">
                       {i + 1}
                     </span>
                     <span className="text-sm font-medium">{cat.name}</span>
@@ -112,8 +108,8 @@ export default function Insights() {
           </div>
 
           <div className="glass-card p-6 border-dashed border-2 flex flex-col items-center text-center py-8">
-            <div className="w-12 h-12 bg-slate-100 dark:bg-slate-800 rounded-2xl flex items-center justify-center mb-4">
-              <Calculator className="w-6 h-6 text-slate-400" />
+            <div className="flex items-center justify-center mb-4">
+              <Calculator className="w-6 h-6 text-brand-secondary" />
             </div>
             <h4 className="font-bold">Next Forecast</h4>
             <p className="text-sm text-slate-500 mt-1">Based on current trends, your balance will grow by $2.4k next month.</p>

@@ -26,6 +26,7 @@ export default function Dashboard() {
       balance,
       incomeTrend: 12.5,
       expenseTrend: -8.2,
+      
       balanceTrend: 15.3
     };
   }, [transactions]);
