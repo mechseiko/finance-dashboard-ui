@@ -1,6 +1,6 @@
 # Zorvyn Finance Dashboard UI - Assesment
 
-Interactive finance dashboard for my Internship Assessment at Zorvyn.
+Interactive finance dashboard for my Internship Assignment at Zorvyn.
 
 ## Demo & Repository
 - **Project Name**: Finance Dashboard UI

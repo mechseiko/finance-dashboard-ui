@@ -15,7 +15,6 @@ const navItems = [
 export default function Sidebar({ isOpen, setIsOpen }) {
   return (
     <>
-      {/* Mobile Backdrop */}
       {isOpen && (
         <div 
           className="fixed inset-0 bg-slate-900/50 backdrop-blur-sm z-40 lg:hidden"
@@ -24,11 +23,10 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       )}
 
       <aside className={cn(
-        "fixed inset-y-0 left-0 z-50 w-64 bg-[var(--card)] border-r border-[var(--border)] transition-transform duration-300 lg:translate-x-0 lg:static lg:inset-0",
+        "fixed inset-y-0 left-0 z-50 w-64 top-0 left-0 bg-[var(--card)] border-r border-[var(--border)] transition-transform duration-300 lg:translate-x-0 lg:static lg:inset-0",
         isOpen ? "translate-x-0" : "-translate-x-full"
       )}>
         <div className="flex flex-col h-full">
-          {/* Logo Section */}
           <div className="p-6 flex items-center gap-3">
             <div className="w-10 h-10 bg-brand-secondary rounded-xl flex items-center justify-center shadow-lg shadow-brand-secondary/20">
               <BarChart3 className="text-white w-6 h-6" />
@@ -40,7 +38,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           </div>
 
           {/* Navigation */}
-          <nav className="flex-1 px-4 space-y-1 mt-4">
+          <nav className="flex-1 px-4 space-y-3 mt-4">
             {navItems.map((item) => (
               <NavLink
                 key={item.path}
@@ -67,7 +65,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
               </div>
               <div className="flex-1 overflow-hidden">
                 <p className="text-sm font-semibold truncate text-[var(--foreground)]">Abdulqoyum</p>
-                <p className="text-xs text-slate-500 truncate">Candidate</p>
+                <p className="text-xs text-slate-500 truncate">Intern</p>
               </div>
             </div>
           </div>
