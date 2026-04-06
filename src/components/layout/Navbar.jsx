@@ -55,13 +55,14 @@ export default function Navbar({ onMenuClick, isDarkMode, toggleDarkMode }) {
           <div className="h-6 w-px bg-[var(--border)] mx-1" />
 
           <button
+            title={isDarkMode ? 'Light Mode' : 'Dark Mode'}
             onClick={toggleDarkMode}
             className="p-2 text-slate-500 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-[var(--border)] transition-all active:scale-90"
           >
             {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
           </button>
 
-          <button onClick={() => { setIsNotificationOpen(true) }} className="p-2 text-slate-500 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl relative border border-[var(--border)] transition-all">
+          <button title='Notifications' onClick={() => { setIsNotificationOpen(true) }} className="p-2 text-slate-500 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl relative border border-[var(--border)] transition-all">
             <Bell className="w-5 h-5" />
             <span className="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-[var(--card)]" />
           </button>
