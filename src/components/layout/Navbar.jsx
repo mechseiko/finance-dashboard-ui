@@ -3,6 +3,7 @@ import { Search, Menu, Sun, Moon, Shield, Eye, Bell } from 'lucide-react';
 import useFinanceStore from '../../store/useFinanceStore';
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
+import { toast } from 'sonner';
 
 const cn = (...inputs) => twMerge(clsx(inputs));
 
@@ -12,32 +13,22 @@ export default function Navbar({ onMenuClick, isDarkMode, toggleDarkMode }) {
   return (
     <nav className="h-16 bg-[var(--card)] border-b border-[var(--border)] px-4 lg:px-8 flex items-center justify-between sticky top-0 z-30">
       <div className="flex items-center gap-4">
-        <button 
+        <button
           onClick={onMenuClick}
           className="p-2 text-slate-500 lg:hidden hover:bg-slate-100 dark:hover:bg-slate-800 rounded-lg"
         >
           <Menu className="w-6 h-6" />
         </button>
-        
-        <div className="hidden sm:flex items-center gap-2 bg-slate-100 dark:bg-slate-800 px-3 py-1.5 rounded-xl border border-[var(--border)] w-64">
-          <Search className="w-4 h-4 text-slate-400" />
-          <input 
-            type="text" 
-            placeholder="Search transactions..." 
-            className="bg-transparent border-none text-sm focus:outline-none w-full text-[var(--foreground)]"
-          />
-        </div>
       </div>
 
       <div className="flex items-center gap-3">
-        {/* Role Toggle */}
-        <div className="flex items-center bg-slate-100 dark:bg-slate-800 p-1 rounded-xl border border-[var(--border)]">
+        <div className="flex items-center bg-slate-100 *:cursor-pointer dark:bg-slate-800 p-1 rounded-xl border border-[var(--border)]">
           <button
-            onClick={() => setRole('Viewer')}
+            onClick={() => {setRole('Viewer'); toast.success('Switched to Viewer Role')}}
             className={cn(
               "flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all",
-              role === 'Viewer' 
-                ? "bg-white dark:bg-slate-700 text-brand-secondary shadow-sm" 
+              role === 'Viewer'
+                ? "bg-white dark:bg-slate-700 text-brand-secondary shadow-sm"
                 : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
             )}
           >
@@ -45,11 +36,11 @@ export default function Navbar({ onMenuClick, isDarkMode, toggleDarkMode }) {
             <span className="hidden sm:inline">Viewer</span>
           </button>
           <button
-            onClick={() => setRole('Admin')}
+            onClick={() => {setRole('Admin'); toast.success("Switched to Admin Role")}}
             className={cn(
               "flex items-center gap-2 px-3 py-1.5 rounded-lg text-xs font-semibold transition-all",
-              role === 'Admin' 
-                ? "bg-brand-secondary text-white shadow-sm" 
+              role === 'Admin'
+                ? "bg-brand-secondary text-white shadow-sm"
                 : "text-slate-500 hover:text-slate-700 dark:hover:text-slate-300"
             )}
           >
@@ -60,14 +51,14 @@ export default function Navbar({ onMenuClick, isDarkMode, toggleDarkMode }) {
 
         <div className="h-6 w-px bg-[var(--border)] mx-1" />
 
-        <button 
+        <button
           onClick={toggleDarkMode}
-          className="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-[var(--border)] transition-all active:scale-90"
+          className="p-2 text-slate-500 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl border border-[var(--border)] transition-all active:scale-90"
         >
           {isDarkMode ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
         </button>
 
-        <button className="p-2 text-slate-500 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl relative border border-[var(--border)] transition-all">
+        <button className="p-2 text-slate-500 cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl relative border border-[var(--border)] transition-all">
           <Bell className="w-5 h-5" />
           <span className="absolute top-2 right-2 w-2 h-2 bg-rose-500 rounded-full border-2 border-[var(--card)]" />
         </button>

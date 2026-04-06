@@ -6,7 +6,6 @@ import Navbar from './components/layout/Navbar';
 import useFinanceStore from './store/useFinanceStore';
 import { INITIAL_TRANSACTIONS } from './data/mockData';
 
-// Page Imports
 import Dashboard from './pages/Dashboard';
 import Transactions from './pages/Transactions';
 import Insights from './pages/Insights';
@@ -16,14 +15,12 @@ function App() {
   const [isDarkMode, setIsDarkMode] = useState(false);
   const { transactions, setTransactions } = useFinanceStore();
 
-  // Initialize mock data if empty
   useEffect(() => {
     if (transactions.length === 0) {
       setTransactions(INITIAL_TRANSACTIONS);
     }
   }, []);
 
-  // Theme support
   useEffect(() => {
     if (isDarkMode) {
       document.documentElement.classList.add('dark');
@@ -37,7 +34,7 @@ function App() {
       <div className="flex min-h-screen bg-[var(--background)] text-[var(--foreground)]">
         <Sidebar isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />
         
-        <div className="flex-1 flex flex-col min-w-0">
+        <div className="flex-1 flex flex-col min-w-0 lg:ml-64">
           <Navbar 
             onMenuClick={() => setIsSidebarOpen(true)} 
             isDarkMode={isDarkMode}
