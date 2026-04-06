@@ -78,7 +78,7 @@ export default function Transactions() {
         {role === 'Admin' && (
           <button 
             onClick={openAddModal}
-            className="btn-primary flex items-center gap-2"
+            className="btn-primary cursor-pointer flex items-center gap-2"
           >
             <Plus className="w-4 h-4" />
             Add Transaction
@@ -86,14 +86,13 @@ export default function Transactions() {
         )}
       </div>
 
-      {/* Filters & Search */}
-      <div className="flex flex-col md:flex-row gap-4 bg-[var(--card)] p-4 rounded-2xl border border-[var(--border)]">
+      <div className="flex flex-col md:flex-row gap-4 bg-[var(--card)] p-4 rounded-xl border border-[var(--border)]">
         <div className="flex-1 relative">
           <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-400" />
           <input 
             type="text" 
             placeholder="Search by description or category..." 
-            className="w-full pl-10 pr-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-brand-secondary/20 transition-all"
+            className="w-full pl-10 pr-4 py-2 text-white rounded-lg bg-slate-50 dark:bg-slate-800 border-none focus:ring-2 focus:ring-brand-secondary/20 transition-all"
             value={searchTerm}
             onChange={(e) => setSearchTerm(e.target.value)}
           />
@@ -101,7 +100,7 @@ export default function Transactions() {
         
         <div className="flex gap-2">
           <select 
-            className="px-4 py-2 rounded-xl bg-slate-50 dark:bg-slate-800 border-none text-sm font-medium focus:ring-2 focus:ring-brand-secondary/20 transition-all cursor-pointer"
+            className="px-4 py-2 rounded-md text-white bg-slate-50 dark:bg-slate-800 border-none text-sm font-medium focus:ring-2 focus:ring-brand-secondary/20 transition-all cursor-pointer"
             value={typeFilter}
             onChange={(e) => setTypeFilter(e.target.value)}
           >
@@ -109,14 +108,9 @@ export default function Transactions() {
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
-          
-          <button className="p-2 rounded-xl bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700 transition-all">
-            <Filter className="w-5 h-5 text-slate-500" />
-          </button>
         </div>
       </div>
 
-      {/* Table */}
       <div className="glass-card overflow-x-auto">
         <table className="w-full text-left border-collapse">
           <thead>
@@ -170,13 +164,13 @@ export default function Transactions() {
                       <>
                         <button 
                           onClick={() => openEditModal(t)}
-                          className="p-1.5 hover:text-brand-secondary hover:bg-brand-secondary/5 rounded-lg transition-colors"
+                          className="p-1.5 hover:text-brand-secondary cursor-pointer hover:bg-brand-secondary/5 rounded-lg transition-colors"
                         >
                           <Pencil className="w-4 h-4" />
                         </button>
                         <button 
                           onClick={() => handleDelete(t.id)}
-                          className="p-1.5 hover:text-rose-500 hover:bg-rose-500/5 rounded-lg transition-colors text-rose-500"
+                          className="p-1.5 hover:text-rose-500 cursor-pointer hover:bg-rose-500/5 rounded-lg transition-colors text-rose-500"
                         >
                           <Trash2 className="w-4 h-4" />
                         </button>

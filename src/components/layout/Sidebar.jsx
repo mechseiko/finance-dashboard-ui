@@ -57,12 +57,12 @@ export default function Sidebar({ isOpen, setIsOpen }) {
           </nav>
 
           <div className="p-4 border-t dark:border-[var(--border)]">
-            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50 dark:bg-slate-800/50">
+            <div className="flex items-center gap-3 p-3 rounded-xl bg-slate-50">
               <div className="w-10 h-10 rounded-full bg-slate-200 dark:bg-slate-700 flex items-center justify-center">
                 <User className="w-6 h-6 text-slate-500" />
               </div>
               <div className="flex-1 overflow-hidden">
-                <p className="text-sm font-semibold truncate text-[var(--foreground)]">Abdulqoyum</p>
+                <p className="text-sm font-semibold truncate text-black">Abdulqoyum</p>
                 <p className="text-xs text-slate-500 truncate">Intern</p>
               </div>
             </div>

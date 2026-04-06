@@ -71,18 +71,17 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
       <div className="bg-[var(--card)] w-full max-w-md rounded-2xl shadow-2xl border border-[var(--border)] overflow-hidden animate-in zoom-in-95 duration-200">
         <div className="flex items-center justify-between p-6 border-b border-[var(--border)]">
           <h3 className="text-xl font-bold">{initialData ? 'Edit Transaction' : 'New Transaction'}</h3>
-          <button onClick={onClose} className="p-2 hover:bg-slate-100 dark:hover:bg-slate-800 rounded-xl transition-all">
+          <button onClick={onClose} className="p-2 hover:bg-slate-100 cursor-pointer dark:hover:bg-slate-800 rounded-md transition-all">
             <X className="w-5 h-5 text-slate-500" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 space-y-5">
-          {/* Type Toggle */}
-          <div className="flex p-1 bg-slate-100 dark:bg-slate-800 rounded-xl border border-[var(--border)]">
+        <form onSubmit={handleSubmit} className="p-6 space-y-5 text-white">
+          <div className="flex p-1 bg-slate-100 dark:bg-slate-800 *:cursor-pointer rounded-md border border-[var(--border)]">
             <button
               type="button"
               onClick={() => setFormData({ ...formData, type: 'expense' })}
-              className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all ${
+              className={`flex-1 py-2 text-sm font-semibold rounded-md transition-all ${
                 formData.type === 'expense' 
                   ? "bg-white dark:bg-slate-700 text-rose-600 shadow-sm" 
                   : "text-slate-500 hover:text-slate-700"
@@ -93,7 +92,7 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
             <button
               type="button"
               onClick={() => setFormData({ ...formData, type: 'income' })}
-              className={`flex-1 py-2 text-sm font-semibold rounded-lg transition-all ${
+              className={`flex-1 py-2 text-sm font-semibold rounded-md transition-all ${
                 formData.type === 'income' 
                   ? "bg-white dark:bg-slate-700 text-emerald-600 shadow-sm" 
                   : "text-slate-500 hover:text-slate-700"
@@ -109,7 +108,7 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
               <input
                 type="text"
                 placeholder="e.g. Monthly Salary, Grocery shock"
-                className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 transition-all focus:outline-none ${
+                className={`w-full px-4 py-2.5 rounded-md bg-slate-50 dark:bg-slate-800 border-2 transition-all focus:outline-none ${
                   errors.description ? "border-rose-500 focus:ring-rose-500/10" : "border-transparent focus:ring-brand-secondary/10"
                 }`}
                 value={formData.description}
@@ -125,7 +124,7 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
                   type="number"
                   step="0.01"
                   placeholder="0.00"
-                  className={`w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 transition-all focus:outline-none ${
+                  className={`w-full px-4 py-2.5 rounded-md bg-slate-50 dark:bg-slate-800 border-2 transition-all focus:outline-none ${
                     errors.amount ? "border-rose-500 focus:ring-rose-500/10" : "border-transparent focus:ring-brand-secondary/10"
                   }`}
                   value={formData.amount}
@@ -137,7 +136,7 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
               <div>
                 <label className="text-xs font-semibold text-slate-500 uppercase tracking-wider block mb-1.5 ml-1">Category</label>
                 <select
-                  className="w-full px-4 py-2.5 rounded-xl bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:outline-none focus:ring-brand-secondary/10 transition-all cursor-pointer"
+                  className="w-full px-4 py-2.5 rounded-md bg-slate-50 dark:bg-slate-800 border-2 border-transparent focus:outline-none focus:ring-brand-secondary/10 transition-all cursor-pointer"
                   value={formData.category}
                   onChange={(e) => setFormData({ ...formData, category: e.target.value })}
                 >
@@ -147,17 +146,17 @@ export default function TransactionModal({ isOpen, onClose, initialData = null }
             </div>
           </div>
 
-          <div className="pt-4 flex gap-3">
+          <div className="pt-4 flex gap-3 *:cursor-pointer">
             <button 
               type="button" 
               onClick={onClose}
-              className="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
+              className="flex-1 px-4 py-3 bg-slate-100 dark:bg-slate-800 text-slate-600 dark:text-slate-400 font-bold rounded-md hover:bg-slate-200 dark:hover:bg-slate-700 transition-all"
             >
               Cancel
             </button>
             <button 
               type="submit" 
-              className="flex-2 px-4 py-3 bg-brand-secondary text-white font-bold rounded-xl flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-brand-secondary/20"
+              className="flex-2 px-4 py-3 bg-brand-secondary text-white font-bold rounded-md flex items-center justify-center gap-2 hover:opacity-90 active:scale-95 transition-all shadow-lg shadow-brand-secondary/20"
             >
               <Save className="w-4 h-4" />
               {initialData ? 'Update' : 'Save'}
