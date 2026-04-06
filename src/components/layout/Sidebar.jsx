@@ -28,7 +28,7 @@ export default function Sidebar({ isOpen, setIsOpen }) {
       )}>
         <div className="flex flex-col h-full">
           <div className="p-6 flex items-center gap-3">
-            <div className="w-10 h-10 bg-[#10b981] rounded-xl flex items-center justify-center shadow-md">
+            <div className="w-10 h-10 bg-brand-secondary rounded-xl flex items-center justify-center shadow-md">
               <img src="/logo.png" alt="Logo" className="w-6 h-6" />
             </div>
             <div>
